@@ -890,7 +890,7 @@ def get_max_drawdown_underwater(underwater):
         The maximum drawdown's recovery.
     """
 
-    valley = np.argmin(underwater)  # end of the period
+    valley = underwater.index[np.argmin(underwater)-1] # end of the period
     # Find first 0
     peak = underwater[:valley][underwater[:valley] == 0].index[-1]
     # Find last 0
